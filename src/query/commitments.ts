@@ -8,7 +8,8 @@ export const CommitmentsQueryDocument = /* GraphQL */ `
   query Commitments($lastLeafIndex: Int, $contractAddress: String!) {
     commitments(
       orderBy: leafIndex
-      where: { contractAddress: $contractAddress, leafIndex_gt: $lastLeafIndex }
+      contractAddress: $contractAddress
+      where: { leafIndex_gt: $lastLeafIndex }
     ) {
       leafIndex
       commitment
