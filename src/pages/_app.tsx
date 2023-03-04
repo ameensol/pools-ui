@@ -11,7 +11,7 @@ import { createClient, Provider as UrqlProvider } from 'urql';
 
 const urqlClient = createClient({
   // url: 'https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools'
-  url: 'https://api.thegraph.com/subgraphs/name/schmidsi/pools-graph/graphql'
+  url: 'https://api.thegraph.com/subgraphs/name/schmidsi/pools-graph'
 });
 
 function App({ Component, pageProps }: AppProps) {
