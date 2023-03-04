@@ -8,7 +8,8 @@ export const SubsetRootsByTimestampDocument = /* GraphQL */ `
   query SubsetRootsByTimestamp($timestamp: BigInt, $contractAddress: Bytes!) {
     subsetRoots(
       orderBy: timestamp
-      where: { contractAddress: $contractAddress, timestamp_gt: $timestamp }
+      contractAddress: $contractAddress
+      where: { timestamp_gt: $timestamp }
     ) {
       subsetRoot
       relayer
