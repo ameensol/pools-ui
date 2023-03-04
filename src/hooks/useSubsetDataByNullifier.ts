@@ -18,9 +18,9 @@ export function useSubsetDataByNullifier() {
     useQuery<SubsetDataByNullifierQuery>({
       query: SubsetDataByNullifierQueryDocument,
       variables: {
-        contractAddress,
-        nullifier: recentWithdrawal.nullifier,
-        subsetRoot: recentWithdrawal.subsetRoot
+        contractAddress: contractAddress.toLowerCase(),
+        nullifier: recentWithdrawal.nullifier.toLowerCase(),
+        subsetRoot: recentWithdrawal.subsetRoot.toLowerCase()
       }
       // requestPolicy: 'cache-and-network'
     });

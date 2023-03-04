@@ -23,11 +23,11 @@ export function useExistingCommitments() {
       leafIndexToIndex[Number(commitmentData.leafIndex)] =
         existingCommitments.length;
       existingCommitments.push({
-        nullifier: poseidon([
+        nullifier: BigNumber.from(poseidon([
           secret,
           1,
           commitmentData.leafIndex
-        ] as BigNumberish[]).toString(),
+        ] as BigNumberish[]).toString()).toHexString(),
         ...commitmentData
       });
     }

@@ -17,7 +17,7 @@ export function useSubsetRoots() {
       query: SubsetRootsByTimestampDocument,
       variables: {
         timestamp: 0,
-        contractAddress
+        contractAddress: contractAddress.toLowerCase()
       },
       requestPolicy: 'cache-and-network'
     });

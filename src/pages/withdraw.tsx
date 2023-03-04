@@ -250,6 +250,7 @@ function Page() {
       isLoading ||
       existingCommitments.length === 0
   );
+
   const isGenerateProofDisabled = Boolean(
     isNullifierInvalid ||
       isRecipientInvalid ||
@@ -261,8 +262,7 @@ function Page() {
       !nullifier ||
       !recipient ||
       !relayer ||
-      !fee ||
-      isFeeInvalid
+      !fee
   );
 
   const generateZkProof = async () => {

@@ -13,7 +13,7 @@ export function useCommitments() {
     query: CommitmentsQueryDocument,
     variables: {
       lastLeafIndex: -1,
-      contractAddress
+      contractAddress: contractAddress.toLowerCase()
     },
     requestPolicy: 'cache-and-network'
   });
