@@ -1,0 +1,14 @@
+sources:
+  # - name: goerli
+  #   handler:
+  #     graphql:
+  #       endpoint: https://api.studio.thegraph.com/query/40189/privacy-pools/v0.0.6
+  - name: privacy-pools
+    handler:
+      graphql:
+        endpoint: https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools
+
+documents:
+  - ./src/query/commitments.graphql
+  - ./src/query/subsetRootsByTimestamp.graphql
+  - ./src/query/subsetDataByNullifier.graphql
