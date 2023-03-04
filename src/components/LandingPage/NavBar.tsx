@@ -45,7 +45,7 @@ const NavBar = () => {
           fontWeight="bold"
           mr={4}
           target="_blank"
-          href="https://github.com/privacy-pools/the-lounge"
+          href="https://github.com/ameensol/privacy-pools"
         >
           docs
         </Link>
@@ -54,7 +54,7 @@ const NavBar = () => {
             fontWeight="bold"
             mr={4}
             target="_blank"
-            href="https://github.com/privacy-pools"
+            href="https://github.com/ameensol/privacy-pools"
           >
             github
           </Link>
