@@ -144,7 +144,7 @@ const InfoSection = () => {
         >
           <Link
             target="_blank"
-            href="https://github.com/privacy-pools/the-lounge"
+            href="https://github.com/ameensol/privacy-pools"
             mr={{ base: 0, md: 10 }}
             textDecoration="none"
             _hover={{ textDecoration: 'none' }}

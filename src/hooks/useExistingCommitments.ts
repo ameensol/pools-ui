@@ -27,7 +27,7 @@ export function useExistingCommitments() {
           secret,
           1,
           commitmentData.leafIndex
-        ] as BigNumberish[]).toHexString(),
+        ] as BigNumberish[]).toString(),
         ...commitmentData
       });
     }

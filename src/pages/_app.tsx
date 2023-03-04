@@ -10,7 +10,8 @@ import { chains, client } from '../wagmi';
 import { createClient, Provider as UrqlProvider } from 'urql';
 
 const urqlClient = createClient({
-  url: 'https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools'
+  // url: 'https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools'
+  url: 'https://api.thegraph.com/subgraphs/name/schmidsi/pools-graph/graphql'
 });
 
 function App({ Component, pageProps }: AppProps) {

@@ -6,7 +6,8 @@ sources:
   - name: privacy-pools
     handler:
       graphql:
-        endpoint: https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools
+        # endpoint: https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools
+        endpoint: https://api.thegraph.com/subgraphs/name/schmidsi/pools-graph/graphql
 
 documents:
   - ./src/query/commitments.graphql
