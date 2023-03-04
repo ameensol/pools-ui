@@ -337,9 +337,7 @@ function Page() {
             <Stack>
               <Center h="100%" pt={4} px={4}>
                 {commitment.eq(0) ? (
-                  <Text color="white" fontSize="lg" fontWeight="bold">
-                    Connect your Note Wallet
-                  </Text>
+                  <NoteWalletConnectButton />
                 ) : (
                   <Button
                     bg="gray.100"

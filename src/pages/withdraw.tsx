@@ -54,7 +54,7 @@ import {
   useWaitForTransaction
 } from 'wagmi';
 import { useAtom } from 'jotai';
-import { DappLayout, SubsetMakerButton } from '../components';
+import { DappLayout, NoteWalletConnectButton, SubsetMakerButton } from '../components';
 import {
   assetAtom,
   denominationAtom,
@@ -864,9 +864,7 @@ function Page() {
                 p={4}
               >
                 {commitment.eq(0) ? (
-                  <Text color="white" fontSize="lg" fontWeight="bold">
-                    Connect your Note Wallet
-                  </Text>
+                  <NoteWalletConnectButton />
                 ) : (
                   <>
                     <SubsetMakerButton />
