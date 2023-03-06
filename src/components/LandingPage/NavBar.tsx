@@ -6,19 +6,6 @@ import { useState, useEffect } from 'react';
 
 const NavBar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <Flex
@@ -40,7 +27,7 @@ const NavBar = () => {
           </Box>
         </Flex>
       </Link>
-      <Box display={{ base: 'none', md: 'block' }}>
+      <Box display={{ base: 'none', lg: 'block' }}>
         <Link
           fontWeight="bold"
           mr={4}
@@ -49,16 +36,14 @@ const NavBar = () => {
         >
           docs
         </Link>
-        {!scrolled && (
-          <Link
-            fontWeight="bold"
-            mr={4}
-            target="_blank"
-            href="https://github.com/ameensol/privacy-pools"
-          >
-            github
-          </Link>
-        )}
+        <Link
+          fontWeight="bold"
+          mr={4}
+          target="_blank"
+          href="https://github.com/ameensol/privacy-pools"
+        >
+          github
+        </Link>
         <Link fontWeight="bold" mr={4} target="_blank" href="/explorer">
           explorer
         </Link>
@@ -74,7 +59,7 @@ const NavBar = () => {
         variant="ghost"
         p={3}
         borderRadius="full"
-        display={{ base: 'block', md: 'none' }}
+        display={{ base: 'block', lg: 'none' }}
         onClick={isOpen ? onClose : onOpen}
       />
       {isOpen && (
@@ -85,7 +70,7 @@ const NavBar = () => {
           right="0"
           py={2}
           px={4}
-          display={{ base: 'block', md: 'none' }}
+          display={{ base: 'block', lg: 'none' }}
         >
           <Link
             mr={4}

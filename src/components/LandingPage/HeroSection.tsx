@@ -24,7 +24,7 @@ const variants = {
 const HeroSection: React.FC = () => {
   return (
     <Box>
-      <Box h="100vh" display="flex" alignItems="center">
+      <Box minH="100vh" display="flex" alignItems="center">
         <Box>
           <motion.div
             variants={variants}
@@ -34,9 +34,9 @@ const HeroSection: React.FC = () => {
           >
             <Flex direction="column" alignItems="center">
               <Flex direction={{ base: 'column', lg: 'row' }} alignItems="top">
-                <Box mt={{ base: 20, md: 2 }}>
+                <Box mt={{ base: 2, md: 2 }}>
                   <Text
-                    fontSize={{ base: '2xl', md: '5xl' }}
+                    fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
                     fontWeight="bold"
                     mb={4}
                     pr={{ base: 0, lg: 200 }}
@@ -69,6 +69,18 @@ const HeroSection: React.FC = () => {
                   >
                     <Button
                       mt={10}
+                      mr={{
+                        base: 'auto',
+                        lg: '0'
+                      }}
+                      ml={{
+                        base: 'auto',
+                        lg: '0'
+                      }}
+                      mb={{
+                        base: 10,
+                        lg: 0,
+                      }}
                       px={4}
                       py={2}
                       bg="black"
@@ -114,10 +126,17 @@ const HeroSection: React.FC = () => {
                     <Image
                       boxSize={{
                         base: '350px',
-                        md: '450px'
+                        lg: '450px'
+                      }}
+                      mr={{
+                        base: 'auto',
+                      }}
+                      ml={{
+                        base: 'auto',
                       }}
                       src="eth_pools_logo_bw.svg"
                       alt="Image"
+                      align="center"
                     />
                   </motion.div>
                 </Box>

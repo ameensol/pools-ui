@@ -8,6 +8,7 @@ import toast, { Toaster, ToastBar } from 'react-hot-toast';
 import { WagmiConfig } from 'wagmi';
 import { chains, client } from '../wagmi';
 import { createClient, Provider as UrqlProvider } from 'urql';
+import '../styles.css'
 
 const urqlClient = createClient({
   // url: 'https://api.thegraph.com/subgraphs/name/ameensol/privacy-pools'
