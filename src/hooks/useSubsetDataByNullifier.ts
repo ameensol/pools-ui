@@ -24,6 +24,15 @@ export function useSubsetDataByNullifier() {
       }
       // requestPolicy: 'cache-and-network'
     });
+    
+  useEffect(() => {
+    executeSubsetDatasQuery({
+      contractAddress: contractAddress.toLowerCase(),
+      nullifier: recentWithdrawal.nullifier.toLowerCase(),
+      subsetRoot: recentWithdrawal.subsetRoot.toLowerCase()
+    });
+
+  }, [recentWithdrawal, contractAddress]);
 
   useEffect(() => {
     if (

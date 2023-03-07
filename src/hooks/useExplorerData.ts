@@ -41,9 +41,7 @@ export function useExplorerData() {
       !nullifier ||
       !subsetRoot ||
       !debouncedCommitments.length ||
-      !accessType ||
-      isNaN(bitLength) ||
-      data.length === 0
+      !accessType
     ) {
       return setExplorerData(defaultExplorerData);
     }
@@ -53,13 +51,13 @@ export function useExplorerData() {
     });
     let includedDeposits: Commitment[];
     let excludedDeposits: Commitment[];
-    if (commitments.length >= accessList.length) {
+    if (debouncedCommitments.length >= accessList.length) {
       let start = 0;
       const end = accessList.length;
       if (end > 30) {
         start = end - 30;
       }
-      const c = commitments.slice(start, end);
+      const c = debouncedCommitments.slice(start, end);
       includedDeposits = c.filter(
         ({ leafIndex }) => accessList.subsetData[Number(leafIndex)] === 0
       );
@@ -70,6 +68,7 @@ export function useExplorerData() {
       includedDeposits = [];
       excludedDeposits = [];
     }
+
     setExplorerData({
       accessList,
       includedDeposits,
