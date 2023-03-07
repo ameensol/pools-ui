@@ -37,6 +37,16 @@ export function useExplorerData() {
   const [explorerData, setExplorerData] = useState<ExplorerDataI>(defaultExplorerData);
   
   useEffect(() => {
+    if (
+      !nullifier ||
+      !subsetRoot ||
+      !debouncedCommitments.length ||
+      !accessType ||
+      isNaN(bitLength) ||
+      data.length === 0
+    ) {
+      return setExplorerData(defaultExplorerData);
+    }
     const accessList = new AccessList({
       accessType,
       bytesData: { bitLength, data }
