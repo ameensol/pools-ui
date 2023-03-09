@@ -143,10 +143,7 @@ export function SubsetMaker() {
           <Container p={0} centerContent overflowY="auto" maxH="50vh">
             {!commitment.eq(0) &&
               commitments.length > 0 &&
-              (commitments.length > 30
-                ? commitments.slice(commitments.length - 30)
-                : commitments
-              ).map((commitmentData, i) => {
+              commitments.map((commitmentData, i) => {
                 return (
                   <HStack key={`row-${i}-${commitmentData.leafIndex}`} w="full">
                     <Container centerContent p={0} w="10%">
