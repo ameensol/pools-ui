@@ -65,7 +65,7 @@ export function SubsetMaker() {
   return (
     <Container px={2} centerContent gap={2}>
       <HStack mb={4}>
-        <Tooltip label="Exclude some of the most recent deposits by optionally checking the corresponding slider. The demo blocklist contains a list of the most recent deposits, 30 at most.">
+        <Tooltip label="Exclude some of the most recent deposits by optionally checking the corresponding slider.">
           <QuestionOutlineIcon />
         </Tooltip>
         <Heading size="md">Exclude some deposits</Heading>
