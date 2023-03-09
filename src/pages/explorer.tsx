@@ -305,7 +305,7 @@ function Page() {
           </Stack>
         </Container>
 
-        {accessList.length > 0 && (
+        { accessList.length >= 0  && (
           <Container centerContent minW="216px" maxW="960px" mb={40}>
             <Stack w="full">
               <Stack
@@ -524,59 +524,60 @@ function Page() {
                         </Text>
                       </HStack>
 
-                      <VStack
-                        w="full"
-                        minH="360px"
-                        overflowY="auto"
-                        bg="gray.50"
-                        py={4}
-                        gap={1}
-                      >
-                        {includedDeposits
-                          .slice(
-                            includedDeposits.length < 30
-                              ? 0
-                              : includedDeposits.length - 30
-                          )
-                          .map(({ commitment, sender, leafIndex }, index) => (
-                            <HStack
-                              key={`included-${leafIndex}`}
-                              justify="center"
-                              w="full"
-                              borderTop={index ? 'solid 1px #BEE3F8' : 'none'}
-                              pt={4}
-                            >
-                              <HStack w="33%" justify="center">
-                                <Text>{leafIndex.toString()}</Text>
-                              </HStack>
+                      { includedDeposits.length > 0 ?
+                        <VStack
+                          w="full"
+                          minH="360px"
+                          overflowY="auto"
+                          bg="gray.50"
+                          py={4}
+                          gap={1}
+                        >
+                          { includedDeposits
+                            .slice(
+                              includedDeposits.length < 30
+                                ? 0
+                                : includedDeposits.length - 30
+                            )
+                            .map(({ commitment, sender, leafIndex }, index) => (
+                              <HStack
+                                key={`included-${leafIndex}`}
+                                justify="center"
+                                w="full"
+                                borderTop={index ? 'solid 1px #BEE3F8' : 'none'}
+                                pt={4}
+                              >
+                                <HStack w="33%" justify="center">
+                                  <Text>{leafIndex.toString()}</Text>
+                                </HStack>
 
-                              <HStack w="33%" justify="flex-start">
-                                <Link
-                                  as={NextLink}
-                                  {...growShrinkProps}
-                                  href={`${chain?.blockExplorers?.default.url}/address/${sender}`}
-                                  isExternal
-                                >
-                                  <Text
-                                    key={`sender-${leafIndex}`}
-                                    color="blue.700"
-                                    fontSize="sm"
-                                    textAlign="left"
-                                    wordBreak="break-all"
+                                <HStack w="33%" justify="flex-start">
+                                  <Link
+                                    as={NextLink}
                                     {...growShrinkProps}
+                                    href={`${chain?.blockExplorers?.default.url}/address/${sender}`}
+                                    isExternal
                                   >
-                                    {pinchString(sender.toString(), 5)}{' '}
-                                    <ExternalLinkIcon />
-                                  </Text>
-                                </Link>
-                              </HStack>
+                                    <Text
+                                      key={`sender-${leafIndex}`}
+                                      color="blue.700"
+                                      fontSize="sm"
+                                      textAlign="left"
+                                      wordBreak="break-all"
+                                      {...growShrinkProps}
+                                    >
+                                      {pinchString(sender.toString(), 5)}{' '}
+                                      <ExternalLinkIcon />
+                                    </Text>
+                                  </Link>
+                                </HStack>
 
-                              <HStack w="33%" justify="flex-start">
-                                <Text>{pinchString(commitment, 6)}</Text>
+                                <HStack w="33%" justify="flex-start">
+                                  <Text>{pinchString(commitment, 6)}</Text>
+                                </HStack>
                               </HStack>
-                            </HStack>
-                          ))}
-                      </VStack>
+                            ))}
+                        </VStack> : "" }
                     </>
                   )}
 
