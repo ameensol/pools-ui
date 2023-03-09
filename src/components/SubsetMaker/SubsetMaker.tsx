@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Button,
-  Heading,
-  Text,
-  Switch,
-  Container,
-  VStack,
-  HStack,
-  Link,
-  Tooltip
-} from '@chakra-ui/react';
 import { ExternalLinkIcon, QuestionOutlineIcon } from '@chakra-ui/icons';
+import {
+  Button, Container, Heading, HStack,
+  Link, Switch, Text, Tooltip, VStack
+} from '@chakra-ui/react';
 import { hexZeroPad } from 'ethers/lib/utils';
-import * as _ from 'lodash';
-import { AccessList, SubsetData } from 'pools-ts';
-import NextLink from 'next/link';
-import { useNetwork } from 'wagmi';
 import { useAtom } from 'jotai';
+import * as _ from 'lodash';
+import NextLink from 'next/link';
+import { AccessList, SubsetData } from 'pools-ts';
+import { useEffect, useState } from 'react';
+import { useNetwork } from 'wagmi';
+import { useAccessList, useNote } from '../../hooks';
 import { commitmentsAtom } from '../../state';
-import { useCommitments, useNote, useAccessList } from '../../hooks';
-import { pinchString, growShrinkProps } from '../../utils';
+import { growShrinkProps, pinchString } from '../../utils';
 
 export function SubsetMaker() {
   const [subsetData, setSubsetData] = useState<SubsetData>([]);
@@ -31,13 +24,9 @@ export function SubsetMaker() {
 
   useEffect(() => {
     if (subsetData.length === 0) {
-      if (accessList.length >= 30) {
         setSubsetData(
-          accessList.getWindow(accessList.length - 30, accessList.length)
+          accessList.getWindow(0, accessList.length)
         );
-      } else if (accessList.length > 0) {
-        setSubsetData(accessList.getWindow(0, accessList.length));
-      }
     }
   }, [subsetData, accessList]);
 
@@ -58,10 +47,6 @@ export function SubsetMaker() {
     let start: number = 0;
     let end: number = accessList.length;
 
-    if (accessList.length >= 30) {
-      start = accessList.length - 30;
-    }
-
     if (!_.isEqual(accessList.getWindow(start, end), subsetData)) {
       const _accessList = AccessList.fromJSON(accessList.toJSON());
       _accessList.setWindow(start, end, subsetData);
@@ -72,7 +57,7 @@ export function SubsetMaker() {
   const isSyncDisabled = _.isEqual(
     subsetData,
     accessList.getWindow(
-      accessList.length < 30 ? 0 : accessList.length - 30,
+      0,
       accessList.length
     )
   );
@@ -80,7 +65,7 @@ export function SubsetMaker() {
   return (
     <Container px={2} centerContent gap={2}>
       <HStack mb={4}>
-        <Tooltip label="Exclude some of the most recent deposits by optionally checking the corresponding slider. The demo blocklist contains a list of the most recent deposits, 30 at most.">
+        <Tooltip label="Exclude some of the most recent deposits by optionally checking the corresponding slider.">
           <QuestionOutlineIcon />
         </Tooltip>
         <Heading size="md">Exclude some deposits</Heading>
