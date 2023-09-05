@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
                       lg: 'left'
                     }}
                   >
-                    Discover a New Privacy on Ethereum
+                    A New Privacy Protocol for Ethereum
                   </Text>
                   <Text
                     fontSize={{ base: 'md', md: 'lg' }}
@@ -55,11 +55,11 @@ const HeroSection: React.FC = () => {
                       base: 'center',
                       lg: 'left'
                     }}
-                  >
+                  > 
                     Privacy Pools allow you to generate a brand new Ethereum
                     address that is completely unlinkable to any prior
-                    transaction history. But our privacy-preserving technology
-                    does much more than that.
+                    transaction history. Most important—you can choose your
+                    own assocation set of deposits, and prove it onchain!
                   </Text>
                   <Link
                     target="_blank"

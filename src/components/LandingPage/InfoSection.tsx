@@ -116,7 +116,7 @@ const InfoSection = () => {
           <ListItem
             icon={<AiOutlineLock />}
             text="Protect Your Privacy"
-            paragraph="Privacy Pools are designed to break the link between your original deposit address and your new withdrawal address. By depositing your funds into a common pool and leaving a cryptographic commitment to a secret value, you can withdraw your funds using a zero-knowledge proof that ensures your new withdrawal address is entirely new and unlinkable. With Privacy Pools, your transaction history remains private and untraceable."
+            paragraph="Privacy Pools are designed to break the link between your original deposit address and your new withdrawal address. By depositing your funds into a common pool and leaving a cryptographic commitment to a secret value, you can withdraw your funds using a zero-knowledge proof that ensures your new withdrawal address is entirely new and unlinkable."
           />
           <ListItem
             icon={<FiSettings />}
@@ -126,12 +126,12 @@ const InfoSection = () => {
           <ListItem
             icon={<HiOutlineBeaker />}
             text="Conduct Open Source Research"
-            paragraph="Our decentralized privacy application is an open source research project that is dedicated to advancing the cause of privacy on the Ethereum blockchain. Our technology is open source and transparent, so you can be confident that your privacy is being protected by a community of experts and enthusiasts."
+            paragraph="Our decentralized privacy application is an open source research project that is dedicated to advancing the cause of privacy on the Ethereum blockchain. We are also engaging financial regulators to help educate them about the new compliance opportunites that Privacy Pools unlocks. "
           />
           <ListItem
             icon={<VscDebugStart />}
             text="Get Started Today"
-            paragraph="If you're looking for a privacy-preserving wallet that is both secure and easy to use, look no further than our decentralized privacy application. Try it today and experience the freedom and security of truly private transactions on the Ethereum blockchain."
+            paragraph="If you're looking for a privacy protocol that is both secure and easy to use, look no further than our decentralized privacy webapp. Try our demo today and see for yourself the power of privacy combined with provable dissocation from bad actors!"
           />
         </Flex>
       </Center>
